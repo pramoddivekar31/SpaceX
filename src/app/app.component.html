@@ -1,0 +1,35 @@
+<ng-container *ngIf="loading; else spaceXProgram">
+  <div class="loader"></div>
+</ng-container>
+
+<ng-template #spaceXProgram>
+  <div class="header">
+    <header>SpaceX Launch Programs</header>
+  </div>
+
+  <div class="launch-programs">
+    <div class="filters">
+      <app-launch-filters
+        [launchYears]="launchYears"
+        [launchLandSuccess]="launchLandSuccess"
+        (launchyear)="_launchyear($event)"
+        (successfulLaunch)="_successfulLaunch($event)"
+        (successfulLand)="_successfulLand($event)"
+      ></app-launch-filters>
+    </div>
+
+    <ng-container *ngIf="spaceXData.length !== 0; else noProgramFound">
+      <div class="programs">
+        <app-launch-programs [spaceXData]="spaceXData"></app-launch-programs>
+      </div>
+    </ng-container>
+
+    <ng-template #noProgramFound>
+      <div class="no-data"><h1>Opps.. No Launch Programs Found</h1></div>
+    </ng-template>
+  </div>
+
+  <footer>
+    <h3 style="text-align: center">Developed by :{{ developer }}</h3>
+  </footer>
+</ng-template>

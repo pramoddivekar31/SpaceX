@@ -1,0 +1,78 @@
+.filters {
+  background-color: white;
+  border-radius: 10px;
+  width: 99%;
+  margin: auto;
+}
+
+.title {
+  margin: 1rem 1.5rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding-top: 1rem;
+}
+
+.bottom-border {
+  width: 58%;
+  margin: auto;
+  margin-top: -15px;
+}
+
+.filter-heading {
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.filter-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.filter-item {
+  background-color: #cff189;
+  padding: 0.5rem 2.4rem;
+  border-radius: 0.5rem;
+  margin: 0.5rem 1rem;
+  text-align: center;
+}
+
+.filter-item:hover {
+  background-color: yellowgreen;
+}
+
+@media only screen and (max-width: 700px) {
+  .title {
+    font-size: 6rem;
+  }
+
+  .filter-heading {
+    font-size: 5rem;
+  }
+
+  .filter-item {
+    width: 35%;
+    margin: 1.5rem;
+    padding: 1.5rem;
+    font-size: 4rem;
+  }
+}
+
+@media only screen and (min-width: 700px) and (max-width: 1024px) {
+  .title {
+    font-size: 3rem;
+    margin: 2rem 1.5rem;
+  }
+
+  .filter-heading {
+    font-size: 2rem;
+  }
+
+  .filter-item {
+    width: 35%;
+    margin: 1rem;
+    padding: 0.5rem;
+    font-size: 2.5rem;
+  }
+}

@@ -1,0 +1,27 @@
+<div class="filters">
+  <p class="title">Filters</p>
+
+  <p class="filter-heading">Launch Year</p>
+  <div class="bottom-border"><hr></div>
+  <div class="filter-container">
+    <div class="filter-item" *ngFor="let year of launchYears" (click)="launchYearClick(year)">
+      {{ year }}
+    </div>
+  </div>
+
+  <p class="filter-heading">Successfull Launch</p>
+  <div class="bottom-border"><hr></div>
+  <div class="filter-container">
+    <div class="filter-item" *ngFor="let launch of launchLandSuccess" (click)="successfulLaunchClick(launch)">
+      {{ launch }}
+    </div>
+  </div>
+
+  <p class="filter-heading">Successfull Landing</p>
+  <div class="bottom-border"><hr></div>
+  <div class="filter-container">
+    <div class="filter-item" *ngFor="let land of launchLandSuccess" (click)="successfulLandClick(land)">
+      {{ land }}
+    </div>
+  </div>
+</div>
