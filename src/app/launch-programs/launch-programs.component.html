@@ -1,7 +1,7 @@
 <div class="launch-program-container">
   <div class="launch-program-card" *ngFor="let program of spaceXData">
     <ng-container *ngIf="program.imgPath; else defaultImgBox">
-      <img [src]="program.imgPath" loading="lazy" alt="Launch-Program-Img" />
+      <img [src]="program.imgPath" height="150px" width="200px" loading="lazy" alt="Launch-Program-Img" />
     </ng-container>
     <ng-template #defaultImgBox><div class="img"></div></ng-template>
     <h3 class="title">{{ program.missionName }} #{{ program.flightNumber }}</h3>
