@@ -28,45 +28,49 @@ export class AppComponent implements OnInit {
     this.loading = true
 
     this.spaceXservice.getSpaceXData().subscribe(
-      (data: ISpaceXData[]) => this.spaceXData = data,
+      (data: ISpaceXData[]) => { this.spaceXData = data; this.showAlertOnNoData() },
       (err: HttpErrorResponse) => console.error('Error in Subscription'),
       () => this.loading = false
     )
   }
 
-  _launchyear(launchYear: number) {
+  getAllSpaceXData(launchYear: number) {
     this.loading = true
 
     this.spaceXservice.getAllSpaceXData(this.launchSuccess, this.landSuccess, launchYear)
       .subscribe(
-        (data: ISpaceXData[]) => this.spaceXData = data,
+        (data: ISpaceXData[]) => { this.spaceXData = data; this.showAlertOnNoData() },
         (err: HttpErrorResponse) => console.error('Error in Subscription'),
         () => this.loading = false
       )
   }
 
-  _successfulLaunch(launchSuccess: string) {
+  getSpaceXDataWithLaunchFilter(launchSuccess: string) {
     this.loading = true
     this.launchSuccess = launchSuccess
 
     this.spaceXservice.getSpaceXDataWithLaunchFilter(launchSuccess)
       .subscribe(
-        (data: ISpaceXData[]) => this.spaceXData = data,
+        (data: ISpaceXData[]) => { this.spaceXData = data; this.showAlertOnNoData() },
         (err: HttpErrorResponse) => console.error('Error in Subscription'),
         () => this.loading = false
       )
   }
 
-  _successfulLand(landSuccess: string) {
+  getSpaceXDataWithLaunchAndLandFilter(landSuccess: string) {
     this.loading = true
     this.landSuccess = landSuccess
 
     this.spaceXservice.getSpaceXDataWithLaunchAndLandFilter(this.launchSuccess, landSuccess)
       .subscribe(
-        (data: ISpaceXData[]) => this.spaceXData = data,
+        (data: ISpaceXData[]) => { this.spaceXData = data; this.showAlertOnNoData() },
         (err: HttpErrorResponse) => console.error('Error in Subscription'),
         () => this.loading = false
       )
+  }
+
+  showAlertOnNoData() {
+    this.spaceXData.length == 0 && alert('Oops... No Launch Programs Found !')
   }
 
 }

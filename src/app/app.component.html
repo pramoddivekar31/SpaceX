@@ -12,21 +12,15 @@
       <app-launch-filters
         [launchYears]="launchYears"
         [launchLandSuccess]="launchLandSuccess"
-        (launchyear)="_launchyear($event)"
-        (successfulLaunch)="_successfulLaunch($event)"
-        (successfulLand)="_successfulLand($event)"
+        (launchyear)="getAllSpaceXData($event)"
+        (successfulLaunch)="getSpaceXDataWithLaunchFilter($event)"
+        (successfulLand)="getSpaceXDataWithLaunchAndLandFilter($event)"
       ></app-launch-filters>
     </div>
 
-    <ng-container *ngIf="spaceXData.length !== 0; else noProgramFound">
-      <div class="programs">
-        <app-launch-programs [spaceXData]="spaceXData"></app-launch-programs>
-      </div>
-    </ng-container>
-
-    <ng-template #noProgramFound>
-      <div class="no-data"><h1>Oops.. No Launch Programs Found</h1></div>
-    </ng-template>
+    <div class="programs" *ngIf="spaceXData.length !== 0">
+      <app-launch-programs [spaceXData]="spaceXData"></app-launch-programs>
+    </div>
   </div>
 
   <footer>
